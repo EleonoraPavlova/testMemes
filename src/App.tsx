@@ -1,5 +1,5 @@
-import {Button} from "@heroui/react";
 import './App.css'
+import ButtonHeroui from "@/components/button/index";
 
 function App() {
  return (
@@ -7,7 +7,7 @@ function App() {
    <h1 className="text-3xl font-bold underline">
     Hello world!
    </h1>
-   <Button>Press me</Button>
+   <ButtonHeroui name={'edit'}/>
   </>
  )
 }
