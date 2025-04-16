@@ -1,0 +1,38 @@
+import {Table, TableBody, TableCell, TableColumn, TableHeader, TableRow} from "@heroui/react";
+import {useCallback} from "react";
+
+import {ColumnKey, columns} from "@/components/table/table.const";
+import TableRenderers from "@/components/table/table-renderers";
+import {Card} from "@/types";
+
+type TableCardsProps = {
+ cards: Card[];
+};
+
+const TableCards = ({cards}: TableCardsProps) => {
+ const renderCell = useCallback((card: Card, columnKey: ColumnKey) => {
+  const renderers = TableRenderers(card);
+  return renderers[columnKey] ?? card[columnKey as keyof Card];
+ }, []);
+
+ return (
+  <Table shadow='md' isHeaderSticky>
+   <TableHeader columns={columns}>
+    {(column) => (
+     <TableColumn key={column.uid} className="text-lg p-[6px]">
+      {column.name}
+     </TableColumn>
+    )}
+   </TableHeader>
+   <TableBody items={cards}>
+    {(item: Card) => (
+     <TableRow key={item.id}>
+      {(columnKey) => <TableCell>{renderCell(item, columnKey as ColumnKey)}</TableCell>}
+     </TableRow>
+    )}
+   </TableBody>
+  </Table>
+ );
+};
+
+export default TableCards;

@@ -1,15 +1,24 @@
 import './App.css'
-import ButtonHeroui from "@/components/button/index";
 
-function App() {
+import {Route, Routes} from 'react-router-dom';
+
+import NavbarHeroui from "./components/navBar";
+import ListPage from "./pages/list-page";
+import TablePage from "./pages/table-page";
+
+const App = () => {
  return (
   <>
-   <h1 className="text-3xl font-bold underline">
-    Hello world!
-   </h1>
-   <ButtonHeroui name={'edit'}/>
+   <NavbarHeroui/>
+   <main>
+    <Routes>
+     <Route path="/table" element={<TablePage/>}/>
+     <Route path="/list" element={<ListPage/>}/>
+     <Route path="*" element={<TablePage/>}/>
+    </Routes>
+   </main>
   </>
- )
-}
+ );
+};
 
-export default App
+export default App;
