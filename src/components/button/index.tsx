@@ -1,11 +1,8 @@
-import {Button} from "@heroui/react";
+import {Button, ButtonProps} from "@heroui/react";
+import {ReactElement} from "react";
 
-type ButtonHerouiProps = {
- name: string;
-}
-
-const ButtonHeroui = ({name}: ButtonHerouiProps) => {
- return <Button color="primary" size="sm" variant="ghost">{name}</Button>;
+const ButtonHeroui = ({name, ...props}: ButtonProps): ReactElement => {
+ return <Button color="primary" size="sm" variant="ghost" {...props} name={name}/>;
 }
 
 export default ButtonHeroui;

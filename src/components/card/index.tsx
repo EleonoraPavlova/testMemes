@@ -1,6 +1,7 @@
 import {Card, CardBody} from "@heroui/react";
+import {ReactElement} from "react";
 
-const CardHeroui = () => {
+const CardHeroui = (): ReactElement => {
  return (
   <Card>
    <CardBody>

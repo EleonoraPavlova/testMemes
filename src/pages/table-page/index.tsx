@@ -1,11 +1,11 @@
-import {useEffect, useState} from "react";
+import {ReactElement, useEffect, useState} from "react";
 
-import ProgressHeroui from "@/components/progress";
+import {PageLayout} from "@/components/page-layout";
 import TableCards from "@/components/table";
 import {Card} from "@/types";
 
 
-const TablePage = () => {
+const TablePage = (): ReactElement => {
  const [cards, setCards] = useState<Card[]>([])
  const [isLoading, setIsLoading] = useState(true)
  const [error, setError] = useState<string | null>(null)
@@ -27,12 +27,9 @@ const TablePage = () => {
  }, [])
 
  return (
-  <div>
-   {isLoading && <ProgressHeroui/>}
-   <h1 className="text-[30px] font-bold m-[20px]">Table of Memes</h1>
-   {error && <p className="text-red-500">{error}</p>}
+  <PageLayout isLoading={isLoading} error={error} title={"Table of Memes"}>
    <TableCards cards={cards}/>
-  </div>
+  </PageLayout>
  );
 };
 

@@ -1,5 +1,5 @@
 import {Table, TableBody, TableCell, TableColumn, TableHeader, TableRow} from "@heroui/react";
-import {useCallback} from "react";
+import {ReactElement, useCallback} from "react";
 
 import {ColumnKey, columns} from "@/components/table/table.const";
 import TableRenderers from "@/components/table/table-renderers";
@@ -9,7 +9,7 @@ type TableCardsProps = {
  cards: Card[];
 };
 
-const TableCards = ({cards}: TableCardsProps) => {
+const TableCards = ({cards}: TableCardsProps): ReactElement => {
  const renderCell = useCallback((card: Card, columnKey: ColumnKey) => {
   const renderers = TableRenderers(card);
   return renderers[columnKey] ?? card[columnKey as keyof Card];
