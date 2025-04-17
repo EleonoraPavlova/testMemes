@@ -2,13 +2,18 @@ import {Button, ButtonProps} from "@heroui/react";
 import {ReactElement, ReactNode} from "react";
 
 type ButtonHerouiProps = {
- children: ReactNode;
+	children: ReactNode;
 } & ButtonProps;
 
-const ButtonHeroui = ({children, ...props}: ButtonHerouiProps): ReactElement => {
- return <Button color="secondary" size="sm" variant="bordered" {...props}>
-  {children}
- </Button>;
+const ButtonHeroui = ({
+																							children,
+																							color = "secondary",
+																							variant = "bordered",
+																							...props
+																						}: ButtonHerouiProps): ReactElement => {
+	return <Button color={color} size="sm" variant={variant} {...props}>
+		{children}
+	</Button>;
 }
 
 export default ButtonHeroui;
