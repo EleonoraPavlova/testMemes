@@ -4,7 +4,6 @@ import {NavLink} from "react-router-dom";
 
 import Logo from "../logo";
 
-
 const NavbarHeroui = (): ReactElement => {
 
  const customClass = ({isActive}: { isActive: boolean }) =>
@@ -13,7 +12,7 @@ const NavbarHeroui = (): ReactElement => {
    : 'text-white';
 
  return (
-  <Navbar className="w-full bg-inherit text-inherit border border-gray-500 rounded-md justify-center">
+  <Navbar className="w-full bg-inherit text-inherit border border-gray-500 rounded-md justify-center mb-8">
    <NavbarBrand>
     <Logo/>
    </NavbarBrand>

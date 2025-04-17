@@ -2,7 +2,7 @@ import {ReactElement, useEffect, useState} from "react";
 
 import {PageLayout} from "@/components/page-layout";
 import TableCards from "@/components/table";
-import {Card} from "@/types";
+import {Card} from "@/shared/types";
 
 
 const TablePage = (): ReactElement => {

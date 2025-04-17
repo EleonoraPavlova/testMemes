@@ -1,10 +1,12 @@
 import {ReactElement} from "react";
 
+import {PageLayout} from "@/components/page-layout";
+
 const ListPage = (): ReactElement => {
  return (
-  <div>
-   <h1 className="text-[30px] font-bold m-[20px]">List of Memes</h1>
-  </div>
+  <PageLayout isLoading={true} error={"error"} title={"List of Memes"}>
+   {"hfhhdjs"}
+  </PageLayout>
  );
 };
 
