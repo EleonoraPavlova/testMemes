@@ -1,8 +1,14 @@
 import {Button, ButtonProps} from "@heroui/react";
-import {ReactElement} from "react";
+import {ReactElement, ReactNode} from "react";
 
-const ButtonHeroui = ({name, ...props}: ButtonProps): ReactElement => {
- return <Button color="primary" size="sm" variant="ghost" {...props} name={name}/>;
+type ButtonHerouiProps = {
+ children: ReactNode;
+} & ButtonProps;
+
+const ButtonHeroui = ({children, ...props}: ButtonHerouiProps): ReactElement => {
+ return <Button color="secondary" size="sm" variant="bordered" {...props}>
+  {children}
+ </Button>;
 }
 
 export default ButtonHeroui;

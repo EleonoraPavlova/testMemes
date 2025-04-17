@@ -3,7 +3,8 @@ import {ReactElement, useCallback} from "react";
 
 import {ColumnKey, columns} from "@/components/table/table.const";
 import TableRenderers from "@/components/table/table-renderers";
-import {Card} from "@/types";
+import {Card} from "@/shared/types";
+
 
 type TableCardsProps = {
  cards: Card[];
@@ -16,17 +17,18 @@ const TableCards = ({cards}: TableCardsProps): ReactElement => {
  }, []);
 
  return (
-  <Table shadow='md' isHeaderSticky>
+  <Table shadow='md'>
    <TableHeader columns={columns}>
     {(column) => (
-     <TableColumn key={column.uid} className="text-lg p-[6px]">
+     <TableColumn key={column.uid} className="text-lg">
       {column.name}
      </TableColumn>
     )}
    </TableHeader>
    <TableBody items={cards}>
     {(item: Card) => (
-     <TableRow key={item.id}>
+     <TableRow key={item.id}
+               className="hover:bg-[hsl(240,3.7%,15.88%)] !rounded-[8px] transition-colors">
       {(columnKey) => <TableCell>{renderCell(item, columnKey as ColumnKey)}</TableCell>}
      </TableRow>
     )}
