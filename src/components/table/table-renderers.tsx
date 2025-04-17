@@ -1,7 +1,7 @@
-import {Link} from "@heroui/react";
 import {JSX} from "react";
 
-import ModalHeroui from "@/components/modal";
+import DropdownHeroui from "@/components/dropdown";
+import ImageLink from "@/components/image-link";
 import {ColumnKey} from "@/components/table/table.const";
 import {Card} from "@/shared/types";
 
@@ -11,13 +11,9 @@ const TableRenderers = (card: Card): Record<ColumnKey, JSX.Element | string | nu
  return {
   id: <p>{card.id}</p>,
   name: <p>{card.name}</p>,
-  image: (
-   <Link href={card.image} target="_blank" className="text-purple-600 hover:underline">
-    view
-   </Link>
-  ),
+  image: <ImageLink imageUrl={card.image}/>,
   likes: <span>{cellValue("likes")}</span>,
-  actions: <ModalHeroui/>
+  actions: <DropdownHeroui card={card}/>
  };
 };
 export default TableRenderers;
