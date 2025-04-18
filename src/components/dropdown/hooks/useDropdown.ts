@@ -6,9 +6,9 @@ import { useAppDispatch, useAppSelector } from "@/services/hooks";
 import { Card } from "@/shared/types";
 
 const useDropdown = (cardId: string) => {
-
   const dispatch = useAppDispatch();
-  const card = useAppSelector(state => state.items.cards.find(c => c.id === cardId)) ?? mockCard;
+  const card =
+    useAppSelector((state) => state.items.cards.find((c) => c.id === cardId)) ?? mockCard;
 
   const [isEditing, setIsEditing] = useState<string | null>(null);
   const [editedValue, setEditedValue] = useState<string>("");
@@ -63,7 +63,7 @@ const useDropdown = (cardId: string) => {
       e.stopPropagation();
       handleEditClick(key, value);
     },
-    [handleEditClick],
+    [handleEditClick]
   );
 
   return {

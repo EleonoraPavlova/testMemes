@@ -2,17 +2,14 @@ import { ReactElement, useEffect } from "react";
 
 import { PageLayout } from "@/components/page-layout";
 import TableCards from "@/components/table";
-import { useAppDispatch, useAppSelector } from "@/services/hooks";
 import { cardsThunks } from "@/services/cardsSlice";
+import { useAppDispatch, useAppSelector } from "@/services/hooks";
 
 const TablePage = (): ReactElement => {
-
   const dispatch = useAppDispatch();
 
-  const cards = useAppSelector(state => state.items.cards);
-  const error = useAppSelector(state => state.items.error);
-  const isLoading = useAppSelector(state => state.items.isLoading);
-
+  const error = useAppSelector((state) => state.items.error);
+  const isLoading = useAppSelector((state) => state.items.isLoading);
 
   useEffect(() => {
     dispatch(cardsThunks.getCards());

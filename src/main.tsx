@@ -18,5 +18,5 @@ createRoot(document.getElementById("root")!).render(
         </Provider>
       </HeroUIProvider>
     </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
 );

@@ -3,9 +3,8 @@ import { ReactElement, useCallback } from "react";
 
 import { ColumnKey, columns } from "@/components/table/table.const";
 import TableRenderers from "@/components/table/table-renderers";
-import { Card } from "@/shared/types";
 import { useAppSelector } from "@/services/hooks";
-
+import { Card } from "@/shared/types";
 
 const TableCards = (): ReactElement => {
   const cards = useAppSelector((state) => state.items.cards);
