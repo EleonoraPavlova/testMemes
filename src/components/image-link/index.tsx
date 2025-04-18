@@ -8,7 +8,7 @@ type ImageLinkProps = {
 const ImageLink = ({ imageUrl }: ImageLinkProps): ReactElement => {
   return (
     <Link href={imageUrl} target="_blank" className="text-purple-600 hover:underline">
-      image
+      link
     </Link>
   );
 };
