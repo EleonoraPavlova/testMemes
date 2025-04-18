@@ -9,7 +9,7 @@ const TableCards = (): ReactElement => {
   const { renderCell, cards } = useTable();
 
   return (
-    <Table aria-label="User information table" shadow="md">
+    <Table aria-label="User information table" shadow="md" selectionMode="single" color="secondary">
       <TableHeader columns={columns}>
         {(column) => (
           <TableColumn key={column.uid} className="text-lg">
@@ -19,7 +19,7 @@ const TableCards = (): ReactElement => {
       </TableHeader>
       <TableBody items={cards}>
         {(item: Card) => (
-          <TableRow key={item.id} className="hover:bg-[hsl(240,3.7%,15.88%)] transition-colors">
+          <TableRow key={item.id}>
             {(columnKey) => <TableCell>{renderCell(item, columnKey as ColumnKey)}</TableCell>}
           </TableRow>
         )}
