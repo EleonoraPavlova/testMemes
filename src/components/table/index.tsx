@@ -1,18 +1,12 @@
 import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/react";
-import { ReactElement, useCallback } from "react";
+import { ReactElement } from "react";
 
+import useTable from "@/components/table/hooks/useTable";
 import { ColumnKey, columns } from "@/components/table/table.const";
-import TableRenderers from "@/components/table/table-renderers";
-import { useAppSelector } from "@/services/hooks";
 import { Card } from "@/shared/types";
 
 const TableCards = (): ReactElement => {
-  const cards = useAppSelector((state) => state.items.cards);
-
-  const renderCell = useCallback((card: Card, columnKey: ColumnKey) => {
-    const renderers = TableRenderers(card);
-    return renderers[columnKey] ?? card[columnKey as keyof Card];
-  }, []);
+  const { renderCell, cards } = useTable();
 
   return (
     <Table aria-label="User information table" shadow="md">
