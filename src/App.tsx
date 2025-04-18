@@ -1,15 +1,11 @@
-import {Button} from "@heroui/react";
-import './App.css'
+import "./App.css";
 
-function App() {
- return (
-  <>
-   <h1 className="text-3xl font-bold underline">
-    Hello world!
-   </h1>
-   <Button>Press me</Button>
-  </>
- )
-}
+import { useRoutes } from "react-router-dom";
 
-export default App
+import { router } from "@/app/routes";
+
+const App = () => {
+  return useRoutes(router);
+};
+
+export default App;

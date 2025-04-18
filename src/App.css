@@ -1,21 +1,21 @@
 #root {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1rem;
-    text-align: center;
+  text-align: center;
 }
 
 html {
-    box-sizing: border-box;
-    font-size: 100%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 24px;
-    color: #fff;
-    background-color: #000;
-    height: 100vh;
+  font-family: "Roboto", sans-serif;
+  line-height: 24px;
+  color: #fff;
+  background-color: #000;
 }
+
+/*max-width: 1400px;*/
+/*margin: 0 auto;*/
+/*padding: 1rem;*/
