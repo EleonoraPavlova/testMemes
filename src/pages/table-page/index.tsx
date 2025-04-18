@@ -10,13 +10,14 @@ const TablePage = (): ReactElement => {
 
   const error = useAppSelector((state) => state.items.error);
   const isLoading = useAppSelector((state) => state.items.isLoading);
+  const success = useAppSelector((state) => state.items.success);
 
   useEffect(() => {
     dispatch(cardsThunks.getCards());
   }, [dispatch]);
 
   return (
-    <PageLayout isLoading={isLoading} error={error} title={"Table of Memes"}>
+    <PageLayout isLoading={isLoading} error={error} success={success} title={"Table of Memes"}>
       <TableCards />
     </PageLayout>
   );

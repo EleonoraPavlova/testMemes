@@ -8,12 +8,14 @@ type CardState = {
   cards: Card[];
   isLoading: boolean;
   error: string | null;
+  success: boolean;
 };
 
 const initialState: CardState = {
   cards: [],
   isLoading: false,
   error: null,
+  success: false,
 };
 
 const cardsSlice = createSlice({
@@ -35,14 +37,17 @@ const cardsSlice = createSlice({
       .addCase(getCards.pending, (state) => {
         state.isLoading = true;
         state.error = null;
+        state.success = false;
       })
       .addCase(getCards.fulfilled, (state, action) => {
         state.isLoading = false;
         state.cards = action.payload;
+        state.success = true;
       })
       .addCase(getCards.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message ?? "Something went wrong";
+        state.success = false;
       });
   },
 });

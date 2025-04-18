@@ -7,6 +7,7 @@ import ProgressHeroui from "@/components/progress";
 type PageLayoutProps = {
   isLoading: boolean;
   error: string | null;
+  success: boolean;
   title: string;
   children: ReactNode;
 };
@@ -14,6 +15,7 @@ type PageLayoutProps = {
 export const PageLayout = ({
   isLoading,
   error,
+  success,
   title,
   children,
 }: PageLayoutProps): ReactElement => {
@@ -24,6 +26,7 @@ export const PageLayout = ({
         <NavbarHeroui />
         <h1 className="text-[30px] font-bold mb-[20px]">{title}</h1>
         {error && <AlertHeroui title={error} color={"danger"} />}
+        {success && <AlertHeroui title={"Success!"} color={"success"} />}
         {children}
       </main>
     </>
