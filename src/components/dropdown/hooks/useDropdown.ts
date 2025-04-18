@@ -29,7 +29,7 @@ const useDropdown = (cardId: string) => {
     const updated: Partial<Card> = {};
 
     (Object.keys(card) as Array<keyof Card>).forEach((key) => {
-      const storedValue = localStorage.getItem(key);
+      const storedValue = localStorage.getItem(`${cardId}-${key}`);
 
       if (storedValue !== null && storedValue !== undefined) {
         if (key === "likes") {
@@ -41,11 +41,11 @@ const useDropdown = (cardId: string) => {
     });
 
     setUpdatedCard((prev) => ({ ...prev, ...updated }));
-  }, [card, isEditing]);
+  }, [card, isEditing, cardId]);
 
   const handleSave = () => {
     if (isEditing) {
-      localStorage.setItem(isEditing, editedValue);
+      localStorage.setItem(`${cardId}-${isEditing}`, editedValue);
 
       const newCard = {
         ...updatedCard,
