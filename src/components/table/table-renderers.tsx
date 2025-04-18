@@ -13,7 +13,7 @@ const TableRenderers = (card: Card): Record<ColumnKey, JSX.Element | string | nu
     name: <p>{card.name}</p>,
     image: <ImageLink imageUrl={card.image} />,
     likes: <span>{cellValue("likes")}</span>,
-    actions: <DropdownHeroui card={card} />,
+    actions: <DropdownHeroui cardId={card.id} />,
   };
 };
 export default TableRenderers;

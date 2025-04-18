@@ -4,12 +4,12 @@ import { ReactElement, useCallback } from "react";
 import { ColumnKey, columns } from "@/components/table/table.const";
 import TableRenderers from "@/components/table/table-renderers";
 import { Card } from "@/shared/types";
+import { useAppSelector } from "@/services/hooks";
 
-type TableCardsProps = {
-  cards: Card[];
-};
 
-const TableCards = ({ cards }: TableCardsProps): ReactElement => {
+const TableCards = (): ReactElement => {
+  const cards = useAppSelector((state) => state.items.cards);
+
   const renderCell = useCallback((card: Card, columnKey: ColumnKey) => {
     const renderers = TableRenderers(card);
     return renderers[columnKey] ?? card[columnKey as keyof Card];

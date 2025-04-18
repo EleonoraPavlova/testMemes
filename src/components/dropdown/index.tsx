@@ -1,23 +1,16 @@
-import {
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownProps,
-  DropdownTrigger,
-} from "@heroui/react";
+import { Dropdown, DropdownItem, DropdownMenu, DropdownProps, DropdownTrigger } from "@heroui/react";
 import { ReactElement } from "react";
 
 import ButtonHeroui from "@/components/button";
 import DropdownItemLink from "@/components/dropdown/dropdown-item-link";
 import useDropdown from "@/components/dropdown/hooks/useDropdown";
 import EditableInput from "@/components/editable-input";
-import { Card } from "@/shared/types";
 
-export type DropdownHerouiProps = {
-  card: Card;
+type DropdownHerouiProps = {
+  cardId: string;
 } & Partial<DropdownProps>;
 
-const DropdownHeroui = ({ card }: DropdownHerouiProps): ReactElement => {
+const DropdownHeroui = ({ cardId }: DropdownHerouiProps): ReactElement => {
   const {
     isEditing,
     editedValue,
@@ -26,7 +19,7 @@ const DropdownHeroui = ({ card }: DropdownHerouiProps): ReactElement => {
     handleKeyDown,
     handleSave,
     onEditClick,
-  } = useDropdown({ card });
+  } = useDropdown(cardId);
 
   return (
     <Dropdown className="shadow-sm shadow-gray-500 w-72" closeOnSelect={false}>

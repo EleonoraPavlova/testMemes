@@ -1,9 +1,15 @@
 import { KeyboardEvent, MouseEvent, useCallback, useEffect, useState } from "react";
 
-import { DropdownHerouiProps } from "@/components/dropdown";
+import { mockCard } from "@/components/dropdown/dropdown.const";
+import { updateCard } from "@/services/cardsSlice";
+import { useAppDispatch, useAppSelector } from "@/services/hooks";
 import { Card } from "@/shared/types";
 
-const useDropdown = ({ card }: DropdownHerouiProps) => {
+const useDropdown = (cardId: string) => {
+
+  const dispatch = useAppDispatch();
+  const card = useAppSelector(state => state.items.cards.find(c => c.id === cardId)) ?? mockCard;
+
   const [isEditing, setIsEditing] = useState<string | null>(null);
   const [editedValue, setEditedValue] = useState<string>("");
   const [updatedCard, setUpdatedCard] = useState<Card>(card);
@@ -40,10 +46,14 @@ const useDropdown = ({ card }: DropdownHerouiProps) => {
   const handleSave = () => {
     if (isEditing) {
       localStorage.setItem(isEditing, editedValue);
-      setUpdatedCard((prev) => ({
-        ...prev,
+
+      const newCard = {
+        ...updatedCard,
         [isEditing]: editedValue,
-      }));
+      };
+
+      setUpdatedCard(newCard);
+      dispatch(updateCard(newCard));
     }
     setIsEditing(null);
   };
@@ -53,7 +63,7 @@ const useDropdown = ({ card }: DropdownHerouiProps) => {
       e.stopPropagation();
       handleEditClick(key, value);
     },
-    [handleEditClick]
+    [handleEditClick],
   );
 
   return {
