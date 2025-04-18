@@ -4,6 +4,7 @@ import { mockCard } from "@/components/dropdown/dropdown.const";
 import { updateCard } from "@/services/cardsSlice";
 import { useAppDispatch, useAppSelector } from "@/services/hooks";
 import { Card } from "@/shared/types";
+import hydrateCardFromLocalStorage from "@/shared/utils/hydrateCardFromLocalStorage";
 
 const useDropdown = (cardId: string) => {
   const dispatch = useAppDispatch();
@@ -26,21 +27,9 @@ const useDropdown = (cardId: string) => {
   };
 
   useEffect(() => {
-    const updated: Partial<Card> = {};
+    const hydratedCard = hydrateCardFromLocalStorage(card, Object.keys(card) as Array<keyof Card>);
 
-    (Object.keys(card) as Array<keyof Card>).forEach((key) => {
-      const storedValue = localStorage.getItem(`${cardId}-${key}`);
-
-      if (storedValue !== null && storedValue !== undefined) {
-        if (key === "likes") {
-          updated["likes"] = Number(storedValue);
-        } else {
-          updated[key] = storedValue;
-        }
-      }
-    });
-
-    setUpdatedCard((prev) => ({ ...prev, ...updated }));
+    setUpdatedCard((prev) => ({ ...prev, ...hydratedCard }));
   }, [card, isEditing, cardId]);
 
   const handleSave = () => {

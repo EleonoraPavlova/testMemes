@@ -17,4 +17,8 @@ export const router: RouteObject[] = [
     path: PATH.NOT_FOUND_ROUTE,
     element: <TablePage />,
   },
+  {
+    path: PATH.ROOT,
+    element: <TablePage />,
+  },
 ];
