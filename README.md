@@ -1,54 +1,51 @@
-# React + TypeScript + Vite
+# Memes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# React + TypeScript SPA + Vite 🚀
 
-Currently, two official plugins are available:
+### Link:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> [Memes](https://memes-pavlova.up.railway.app/) - web application
 
-## Expanding the ESLint configuration
+### Description:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+I've created a React Single Page Application that serves as a meme directory, featuring a collection of popular memes.
+The app includes two views:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
+Table View:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Displays memes in a structured table format with columns for meme ID, name, image URL, and like count.
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+Each entry in the table has an Edit button that opens a modal popup, allowing users to edit meme properties (like name,
+image URL, and like count).
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-```
+Validation is applied to all fields except the meme ID:
+Name: Must be a string between 3 and 100 characters.
+Image URL: Must be a valid URL in the format of a JPG image.
+Like Count: Must be an integer between 0 and 99.
+
+The meme data is stored and can be modified directly in the browser using local storage, making it easy for users to
+customize meme properties.
+
+List View:
+
+Presents memes in a responsive card layout, where each card includes:
+
+Meme image (using HeroUI's Image component)
+
+Meme title (displayed as the card's header)
+
+Number of likes
+
+A clickable link for additional interaction
+
+This app is fully responsive, ensuring an optimal experience on both desktop and mobile devices.
+
+# Project Stack
+
+| **Core**         | **Styling**   | **State/Logic** | **Tooling**         |
+|------------------|---------------|-----------------|---------------------|
+| React            | Tailwind CSS  | Redux Toolkit   | Vite                |
+| React DOM        | HeroUI        | React Redux     | TypeScript          |
+| React Router DOM | Framer Motion | LocalStorage    | ESLint              |
+|                  |               |                 | Prettier            |
+|                  |               |                 | Husky + Lint-Staged |
