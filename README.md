@@ -2,43 +2,43 @@
 
 # React + TypeScript SPA + Vite 🚀
 
-### Link:
+## Deployment:
 
-> [Memes](https://memes-pavlova.up.railway.app/) - web application
+> Deployed on [Railway](https://memes-pavlova.up.railway.app/).
 
 ### Description:
 
 I've created a React Single Page Application that serves as a meme directory, featuring a collection of popular memes.
 The app includes two views:
 
-Table View:
+### 1. **Table View:**
 
-Displays memes in a structured table format with columns for meme ID, name, image URL, and like count.
+- Displays memes in a structured **table format**.
+- Columns include:
+    - Meme ID
+    - Name
+    - Image URL
+    - Like count
+- **Edit button** in each table entry:
+    - Opens a dropdown for editing meme properties (name, image URL, and likes).
+- **Validation** for meme properties (except the meme ID):
+    - **Name:** Must be a string between 3 and 100 characters.
+    - **Image URL:** Must be a valid URL in JPG format.
+    - **Like Count:** Must be an integer between 0 and 99.
+- Meme data is stored in **local storage**, allowing users to modify meme properties.
 
-Each entry in the table has an Edit button that opens a modal popup, allowing users to edit meme properties (like name,
-image URL, and like count).
+### 2. **List View:**
 
-Validation is applied to all fields except the meme ID:
-Name: Must be a string between 3 and 100 characters.
-Image URL: Must be a valid URL in the format of a JPG image.
-Like Count: Must be an integer between 0 and 99.
+- Displays memes in a **responsive card layout**.
+- Each card contains:
+    - **Meme image** (using HeroUI's `Image` component)
+    - **Meme title** (displayed as the card's header)
+    - **Number of likes**
+    - **Clickable link** for additional interaction.
 
-The meme data is stored and can be modified directly in the browser using local storage, making it easy for users to
-customize meme properties.
+### 3. **Responsive Design:**
 
-List View:
-
-Presents memes in a responsive card layout, where each card includes:
-
-Meme image (using HeroUI's Image component)
-
-Meme title (displayed as the card's header)
-
-Number of likes
-
-A clickable link for additional interaction
-
-This app is fully responsive, ensuring an optimal experience on both desktop and mobile devices.
+- The app is fully responsive, ensuring an optimal experience on both **desktop and mobile devices**.
 
 # Project Stack
 
