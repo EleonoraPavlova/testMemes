@@ -4,7 +4,7 @@
 
 ## Deployment:
 
-> Deployed on [Railway](https://memes-pavlova.up.railway.app/){:target="_blank"}
+> Deployed on <a href="https://memes-pavlova.up.railway.app/" target="_blank">Railway</a>
 
 
 > ## How to start:
@@ -13,11 +13,12 @@
    ```bash
    npm i
 
+
 2. Run the development server:
     ```bash
     npm run dev
 
-### Description:
+> ## Description:
 
 This is a React Single Page App that serves as a meme directory, featuring a collection of popular memes.
 The app includes two views:
@@ -51,7 +52,7 @@ The app includes two views:
 
 - The app is fully responsive, ensuring an optimal experience on both **desktop and mobile devices**.
 
-# Project Stack
+> ## Project Stack
 
 | **Core**         | **Styling**   | **State/Logic** | **Tooling**         |
 |------------------|---------------|-----------------|---------------------|
