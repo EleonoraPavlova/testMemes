@@ -4,7 +4,7 @@
 
 ## Deployment:
 
-> Deployed on <a href="https://memes-pavlova.up.railway.app/" target="_blank">Railway</a>
+[Railway](https://memes-pavlova.up.railway.app) - web application
 
 
 > ## How to start:
@@ -12,7 +12,6 @@
 1. Install dependencies:
    ```bash
    npm i
-
 
 2. Run the development server:
     ```bash
