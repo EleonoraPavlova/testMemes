@@ -4,11 +4,22 @@
 
 ## Deployment:
 
-> Deployed on [Railway](https://memes-pavlova.up.railway.app/).
+> Deployed on [Railway](https://memes-pavlova.up.railway.app/){:target="_blank"}
+
+
+> ## How to start:
+
+1. Install dependencies:
+   ```bash
+   npm i
+
+2. Run the development server:
+    ```bash
+    npm run dev
 
 ### Description:
 
-I've created a React Single Page Application that serves as a meme directory, featuring a collection of popular memes.
+This is a React Single Page App that serves as a meme directory, featuring a collection of popular memes.
 The app includes two views:
 
 ### 1. **Table View:**
