@@ -4,7 +4,7 @@
 
 ## Deployment:
 
-[Railway](https://memes-pavlova.up.railway.app) - web application
+[Vercel](https://test-memes.vercel.app/) - web application
 
 
 > ## How to start:
